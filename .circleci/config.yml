@@ -1,10 +1,16 @@
-# Python CircleCI 2.0 configuration file
-version: 2
+# Python CircleCI 2.1 configuration file
+version: 2.1
 jobs:
   build:
     docker:
       - image: circleci/python:3.12
 
+    steps:
+      - setup_remote_docker
+
+      - run:
+          name: Pull Docker image
+          command: docker pull circleci/python:3.12
     working_directory: ~/repo
 
     steps:
